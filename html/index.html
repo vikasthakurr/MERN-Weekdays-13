@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+      HTML History (quick notes)
+      - 1991: Tim Berners-Lee publishes the first HTML spec.
+      - 1995: HTML 2.0 becomes an IETF standard.
+      - 1997-1999: HTML 3.2 and 4.01 expand tags + introduce CSS separation.
+      - 2000: XHTML 1.0 emphasizes stricter XML-style syntax.
+      - 2014: HTML5 becomes a W3C Recommendation (semantic tags, audio/video, APIs).
+      - 2019+: HTML Living Standard maintained by WHATWG.
+    -->
+
+    <!--
+      HTML Tags & Elements (quick notes)
+      - Tag: the markup in angle brackets, e.g. <p> or </p>.
+      - Element: start tag + content + end tag, e.g. <p>Hello</p>.
+      - Void elements have no end tag/content: <img>, <br>, <hr>, <meta>, <link>, <input>.
+      - Attributes add extra info to elements, e.g. <img src="..." alt="...">.
+      - Semantic elements describe meaning: <header>, <main>, <article>, <section>, <footer>.
+      - Block vs inline: block elements start on a new line; inline elements flow within text.
+    -->
+    <!--
+      Headings
+      - <h1> to <h6> define section titles.
+      - Use one <h1> per page when possible for structure.
+      - Headings create a document outline for accessibility.
+    -->
+    <!-- headings -->
+    <!-- <h1>this is heading 1</h1>
+    <h2>this is heading 2</h2>
+    <h3>this is heading 3</h3>
+    <h4>this is heading 4</h4>
+    <h5>this is heading 5</h5>
+    <h6>this is heading 6</h6> -->
+
+    <!--
+      Paragraph
+      - <p> is a block element for body text.
+      - Browsers add default margin around paragraphs.
+    -->
+    <!-- <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est itaque
+      doloribus nostrum? Dolores, autem? Repellat similique obcaecati magnam
+      mollitia fugit?
+    </p> -->
+
+    <!--
+      Preformatted Text
+      - <pre> preserves spaces and line breaks.
+      - Useful for code blocks or formatted text.
+    -->
+    <!-- <pre>
+        Vikas,
+        asdfghj,
+        asefdghj,
+        asdfghj
+    </pre> -->
+
+    <!--
+      Subscript + ARIA Example
+      - <sub> renders text slightly lower (e.g. chemical formulas).
+      - ARIA attributes describe interactive roles for accessibility.
+    -->
+    <!-- <p>vikas <sub>kumar</sub></p>
+    <div
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-current="70"
+    ></div>
+    <br>
+    <hr>
+    <a href=""></a> -->
+
+    <!--
+      Unordered List
+      - <ul> creates a bulleted list.
+      - Use <li> for each item.
+    -->
+    <!-- <ul>
+      <li>item-1</li>
+      <li>item-2</li>
+    </ul> -->
+    <!--
+      Unordered List (example in use)
+      - Browser renders bullets by default.
+      - Can be styled with CSS (list-style, margin, padding).
+    -->
+    <ul>
+      <li>item-1</li>
+      <li>item-2</li>
+      <li>item-3</li>
+      <li>item-4</li>
+      <li>item-5</li>
+      <li>item-6</li>
+      <li>item-7</li>
+      <li>item-8</li>
+      <li>item-9</li>
+      <li>item-10</li>
+    </ul>
+
+    <!--
+      Division + Class
+      - <div> is a generic block container.
+      - class is used for styling and JS hooks.
+    -->
+    <!-- <div class="vikas"></div>
+    <div class="vikas"></div> -->
+
+    <!--
+      Ordered List
+      - <ol> creates a numbered list.
+      - start attribute sets the first number.
+    -->
+    <ol start="2">
+      <li>item=1</li>
+      <li>item-2</li>
+    </ol>
+
+    <!--
+      Description List
+      - <dl> groups terms and descriptions.
+      - <dt> term, <dd> description.
+    -->
+    <dl>
+      <dt>js</dt>
+      <dd>this is programming language</dd>
+    </dl>
+    <!--
+      Image
+      - <img> is a void element for images.
+      - Always include alt text for accessibility.
+      - width/height can reserve layout space.
+    -->
+    <!-- 
+    <img width="400px"
+      src="https://images.pexels.com/photos/12274675/pexels-photo-12274675.jpeg"
+      alt="this is a image of building"
+    /> -->
+
+    <!--
+      Video
+      - <video> embeds video content.
+      - Common attributes: controls, autoplay, loop, muted.
+    -->
+    <!-- <video
+      src="https://www.pexels.com/download/video/34661916/"
+      controls
+      width="400px"
+      muted
+      autoplay
+      loop
+    ></video> -->
+
+    <!--
+      Video with <source>
+      - Use multiple <source> tags for different formats.
+      - Browser picks the first supported source.
+    -->
+    <video>
+      <source />
+      <source />
+    </video>
+
+    <!--
+      Audio
+      - <audio> embeds sound content.
+      - controls shows play/pause UI.
+    -->
+    <!-- <audio src="abc.mp3" controls></audio> -->
+
+    <!--
+      Table
+      - <table> organizes tabular data.
+      - <thead> for headers, <tbody> for body rows.
+      - <th> header cell, <td> data cell.
+    -->
+    <table border="">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Mobile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Vikas</td>
+          <td>26</td>
+          <td>123456789</td>
+        </tr>
+        <tr>
+          <td>Vikas</td>
+          <td>26</td>
+          <td>123456789</td>
+        </tr>
+        <tr>
+          <td>Vikas</td>
+          <td>26</td>
+          <td>123456789</td>
+        </tr>
+        <tr>
+          <td>Vikas</td>
+          <td>26</td>
+          <td>123456789</td>
+        </tr>
+        <tr>
+          <td>Vikas</td>
+          <td>26</td>
+          <td>123456789</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

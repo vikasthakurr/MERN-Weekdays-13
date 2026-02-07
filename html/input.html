@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      The <input> tag specifies an input field where the user can enter data.
+      The <input> element is the most important form element.
+      The <input> element can be displayed in several ways, depending on the type attribute.
+    -->
+
+    <!-- 
+      type="text": Defines a one-line text input field.
+      placeholder: Specifies a short hint that describes the expected value of an input field.
+      required: Specifies that an input field must be filled out before submitting the form.
+      readonly: Specifies that an input field is read-only (cannot be changed).
+      value: Specifies the initial value for an input field.
+      name: Specifies the name of an input element.
+      id: Specifies a unique id for an element.
+    -->
+    <input
+      type="text"
+      name="username"
+      id="username"
+      placeholder="enter your name"
+      required
+      readonly
+      value="vikas"
+    />
+    <br /><br />
+
+    <!-- type="email": Defines a field for an e-mail address. -->
+    <input type="email" name="useremail" id="useremail" placeholder="email" />
+    <br /><br />
+
+    <!-- type="number": Defines a field for entering a number. -->
+    <input type="number" name="age" id="age" placeholder="number" />
+    <br /><br />
+
+    <!-- type="date": Defines a date control (year, month, and day (no time)). -->
+    <input type="date" name="dob" id="dob" />
+    <br /><br />
+
+    <!-- type="month": Defines a month and year control (no time zone). -->
+    <input type="month" name="bmonth" id="bmonth" />
+    <br /><br />
+
+    <!-- type="week": Defines a week and year control (no time zone). -->
+    <input type="week" name="bweek" id="bweek" />
+    <br /><br />
+
+    <!-- type="range": Defines a control for entering a number whose exact value is not important (like a slider control). -->
+    <input type="range" name="vol" id="vol" min="0" max="50" />
+    <br /><br />
+
+    <!-- type="file": Defines a file-select field and a "Browse" button for file uploads. -->
+    <input type="file" name="profile_pic" id="profile_pic" />
+    <br /><br />
+
+    <!-- type="radio": Defines a radio button. Radio buttons let a user select ONLY ONE of a limited number of choices. -->
+    <input type="radio" name="gender" id="male" value="male" />
+    <label for="male">Male</label>
+    <input type="radio" name="gender" id="female" value="female" />
+    <label for="female">Female</label> <br /><br />
+
+    <!-- type="checkbox": Defines a checkbox. Checkboxes let a user select ZERO or MORE options. -->
+    <input type="checkbox" name="terms" id="terms" />
+    <label for="terms">Agree to terms</label> <br /><br />
+
+    <!-- type="password": Defines a password field. The characters are masked. -->
+    <input type="password" name="pwd" id="pwd" placeholder="password" />
+    <br /><br />
+
+    <!-- type="submit": Defines a button for submitting the form data to a form-handler. -->
+    <input type="submit" value="Submit Form" />
+    <br /><br />
+
+    <!-- 
+      The <select> element defines a drop-down list.
+      The <option> tags define the available options in the drop-down list.
+    -->
+    <label for="gender-select">Choose a gender:</label>
+    <select name="gender-select" id="gender-select">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="others">Others</option>
+    </select>
+    <br /><br />
+
+    <!-- 
+      The <textarea> element defines a multi-line text input control.
+      The rows attribute specifies the visible number of lines.
+      The cols attribute specifies the visible width.
+    -->
+    <textarea
+      name="message"
+      id="message"
+      rows="10"
+      cols="30"
+      placeholder="Enter your message here..."
+    ></textarea>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Tags vs Elements</title>
+  </head>
+  <body>
+    <h1>HTML Tags vs Elements</h1>
+
+    <!-- 
+        What is an HTML Tag?
+        A tag is used to create an element.
+        Tags are the starting and ending parts of an HTML element.
+        They begin with < and end with >.
+        
+        Types of tags:
+        1. Start tag (Opening tag): <p>, <div>, <h1>
+        2. End tag (Closing tag): </p>, </div>, </h1>
+        3. Self-closing tag (Empty tag): <br>, <hr>, <img>, <input>
+    -->
+    <section>
+      <h2>HTML Tags</h2>
+      <p>This paragraph is enclosed in paragraph tags.</p>
+      <br />
+      <!-- This is a self-closing tag -->
+      <hr />
+      <!-- This is also a self-closing tag -->
+    </section>
+
+    <!-- 
+        What is an HTML Element?
+        An HTML element is defined by a start tag, some content, and an end tag.
+        Element = Start Tag + Content + End Tag
+        
+        Example:
+        <h1>My Heading</h1>
+        - Start tag: <h1>
+        - Content: My Heading
+        - End tag: </h1>
+        - The whole thing is the H1 Element.
+
+        Nested Elements:
+        Elements can contain other elements.
+        Example: The <body> element contains all the visible elements like <h1>, <p>, etc.
+    -->
+    <section>
+      <h2>HTML Elements</h2>
+      <div>
+        <!-- This <div> element contains a <p> element inside it (Nested Element) -->
+        <p>I am a paragraph element inside a div element.</p>
+      </div>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Block-level vs Inline Elements</h2>
+
+      <!-- 
+            Block-level Elements:
+            - Always start on a new line.
+            - Take up the full width available (stretches out to the left and right as far as it can).
+            - Examples: <div>, <h1>-<h6>, <p>, <form>, <header>, <footer>, <section>
+        -->
+      <div style="background-color: lightblue">
+        I am a Block-level element (div).
+      </div>
+      <p style="background-color: lightcoral">
+        I am also a Block-level element (p).
+      </p>
+
+      <!-- 
+            Inline Elements:
+            - Do not start on a new line.
+            - Only take up as much width as necessary.
+            - Examples: <span>, <a>, <img>, <strong>, <em>
+        -->
+      <span style="background-color: lightgreen"
+        >I am an Inline element (span).</span
+      >
+      <a href="#" style="background-color: yellow">I am also Inline (a).</a>
+      <span>Notice how we sit next to each other!</span>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Attributes</h2>
+      <!-- 
+            Attributes provide additional information about elements.
+            - Attributes are always specified in the start tag.
+            - Attributes usually come in name/value pairs like: name="value"
+            
+            Common Attributes:
+            - class: Specifies one or more class names for an element (refers to a class in a style sheet).
+            - id: Specifies a unique id for an element.
+            - style: Specifies an inline CSS style for an element.
+            - title: Specifies extra information about an element (displayed as a tool tip).
+        -->
+      <p title="I am a tooltip">Hover over me to see the title attribute!</p>
+      <p style="color: blue">I have a style attribute making me blue.</p>
+    </section>
+  </body>
+</html>

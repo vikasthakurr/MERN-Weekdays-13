@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARIA (Accessible Rich Internet Applications) Documentation</title>
+  </head>
+  <body>
+    <h1>ARIA: Accessible Rich Internet Applications</h1>
+
+    <!-- 
+        What is ARIA?
+        ARIA stands for Accessible Rich Internet Applications. 
+        It is a set of attributes that you can add to HTML elements to make web content and web applications more accessible to people with disabilities.
+        Specifically, ARIA helps screen readers and other assistive technologies understand the roles, states, and properties of user interface elements that are not natively supported by HTML.
+    -->
+
+    <section>
+      <h2>The First Rule of ARIA</h2>
+      <!-- 
+            The first rule of ARIA is: "Don't use ARIA." 
+            This means if you can use a native HTML element (like <button>, <input>, <nav>, etc.) that already has the built-in semantics and keyboard support, use that instead of re-creating it with ARIA. 
+            Only use ARIA when native HTML elements cannot achieve the desired functionality or accessibility.
+        -->
+      <p>
+        If you can use a native HTML element or attribute with the semantics and
+        behavior you require, then do so instead of repurposing an element and
+        adding an ARIA role, state or property to make it accessible.
+      </p>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Key Concepts of ARIA</h2>
+
+      <h3>1. Roles</h3>
+      <!-- 
+            Roles define *what* an element is or does. 
+            They override the element's native role. 
+            Example: role="button", role="navigation", role="alert".
+        -->
+      <div role="button" tabindex="0">
+        Click Me (This is a div acting as a button)
+      </div>
+      <!-- Note: When using role="button" on a non-interactive element like div, you MUST also add tabindex="0" to make it focusable and handle keyboard events (Enter/Space) with JavaScript. -->
+
+      <h3>2. Properties</h3>
+      <!-- 
+            Properties define characteristics of an element that are less likely to change.
+            Example: aria-label, aria-labelledby, aria-describedby, aria-required.
+        -->
+      <br />
+      <label for="username">Username:</label>
+      <input
+        type="text"
+        id="username"
+        aria-required="true"
+        aria-describedby="username-desc"
+      />
+      <span id="username-desc">Your unique username for login.</span>
+
+      <h3>3. States</h3>
+      <!-- 
+            States define the current condition of an element, which *can* change due to user interaction.
+            Example: aria-checked, aria-disabled, aria-expanded, aria-hidden.
+        -->
+      <br /><br />
+      <button
+        aria-expanded="false"
+        onclick="
+          this.setAttribute(
+            'aria-expanded',
+            this.getAttribute('aria-expanded') === 'false' ? 'true' : 'false',
+          )
+        "
+      >
+        Toggle Menu
+      </button>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Common ARIA Attributes</h2>
+
+      <ul>
+        <li>
+          <strong>aria-label:</strong> Defines a string value that labels an
+          interactive element. Use this when there is no visible text on screen
+          (like an icon button).
+          <br />
+          <button aria-label="Close">X</button>
+        </li>
+
+        <li>
+          <strong>aria-labelledby:</strong> Identifies the element (or elements)
+          that labels the current element. It references the ID of another
+          element.
+          <br />
+          <h3 id="billing-info">Billing Information</h3>
+          <div role="region" aria-labelledby="billing-info">...content...</div>
+        </li>
+
+        <li>
+          <strong>aria-hidden:</strong> Indicates whether an element is exposed
+          to the accessibility API. `aria-hidden="true"` hides the element from
+          screen readers but keeps it visible visually.
+          <br />
+          <span aria-hidden="true">Thinking... (Icon)</span>
+        </li>
+
+        <li>
+          <strong>aria-live:</strong> Indicates that an element will be updated,
+          and describes the types of updates the user agents, assistive
+          technologies, and user can expect from the live region.
+          <ul>
+            <li>
+              <code>aria-live="polite"</code>: Wait until the user is idle to
+              announce updates.
+            </li>
+            <li>
+              <code>aria-live="assertive"</code>: Interrupt the user to announce
+              updates immediately.
+            </li>
+          </ul>
+          <div role="alert" aria-live="assertive">Error: Invalid password.</div>
+        </li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Accessibility Tree</h2>
+      <!-- 
+            The browser takes the DOM (Document Object Model) and creates an "Accessibility Tree". 
+            Assistive technologies (like screen readers) interact with this Accessibility Tree, not the visual UI.
+            ARIA modifies this tree without changing the visual appearance or behavior of the elements.
+        -->
+      <p>
+        ARIA attributes modify the accessibility tree, providing extra context
+        to assistive technologies.
+      </p>
+    </section>
+  </body>
+</html>

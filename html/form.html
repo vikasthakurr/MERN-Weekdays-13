@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      The <form> element is used to create an HTML form for user input.
+      The <form> element can contain one or more of the following form elements:
+      <input>, <textarea>, <button>, <select>, <option>, <optgroup>, <fieldset>, <label>, <output>
+    -->
+
+    <!-- 
+      Common Form Attributes:
+      action: Specifies where to send the form-data when a form is submitted.
+              Example: action="/action_page.php" (sends to a server-side script)
+              If omitted, the action is set to the current page.
+
+      method: Specifies the HTTP method to use when sending form-data.
+              - GET: Appends form-data to the URL in name/value pairs: URL?name=value&name=value
+                     NEVER use GET to send sensitive data! (visible in URL)
+                     Length of URL is limited (about 2048 characters)
+                     Useful for form submissions where a user wants to bookmark the result
+                     GET is better for non-secure data, like query strings in Google
+              - POST: Sends form-data as an HTTP post transaction (body of the HTTP request)
+                      Form submissions with POST cannot be bookmarked
+                      POST has no size limitations, and can be used to send large binary data (like images)
+
+      target: Specifies where to display the response that is received after submitting the form.
+              - _blank: Opens the response in a new window or tab
+              - _self: Opens the response in the same window/tab (default)
+              - _parent: Opens the response in the parent frame
+              - _top: Opens the response in the full body of the window
+
+      autocomplete: Specifies whether a form should have autocomplete on or off.
+                    - on: The browser automatically completes values based on values that the user has entered before.
+                    - off: The user must enter a value into each field for every use, or the browser does not save entries.
+      
+      novalidate: A boolean attribute. When present, it specifies that the form-data (input) should not be validated when submitted.
+    -->
+
+    <h3>Basic Form Example</h3>
+    <form action="./table.html" method="get" target="_blank" autocomplete="on">
+      <label for="fullname">Name:</label>
+      <input
+        type="text"
+        name="fullname"
+        id="fullname"
+        placeholder="Enter your full name"
+        required
+      />
+      <br /><br />
+
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+      />
+      <br /><br />
+
+      <input type="submit" value="Submit Data" />
+    </form>
+
+    <hr />
+
+    <h3>Form with Fieldset and Legend</h3>
+    <!-- 
+      <fieldset>: Used to group related data in a form.
+      <legend>: Defines a caption for the <fieldset> element.
+    -->
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Personal Information</legend>
+
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" placeholder="First Name" />
+        <br /><br />
+
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" placeholder="Last Name" />
+        <br /><br />
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" />
+      </fieldset>
+
+      <br />
+
+      <fieldset>
+        <legend>Contact Information</legend>
+
+        <label for="contact_email">Email:</label>
+        <input
+          type="email"
+          id="contact_email"
+          name="contact_email"
+          placeholder="Email Address"
+        />
+        <br /><br />
+
+        <label for="mobile">Mobile Number:</label>
+        <input
+          type="tel"
+          id="mobile"
+          name="mobile"
+          placeholder="123-45-678"
+          pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+        />
+      </fieldset>
+
+      <br />
+      <input type="submit" value="Register" />
+    </form>
+
+    <hr />
+
+    <h3>Special Links</h3>
+    <!-- 
+     mailto: Opens the default email client to send an email.
+     tel: Initiates a phone call (on supported devices).
+    -->
+    <a href="mailto:vikas@gmail.com">Send Email</a>
+    <br /><br />
+    <a href="tel:+1234567890">Call Us</a>
+  </body>
+</html>
