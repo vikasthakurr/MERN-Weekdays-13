@@ -1,0 +1,8 @@
+/* 
+ * [Type Selector] (h1)
+ * Definition: Selects all elements of the specified type (tag name).
+ * Usage: Styles all <h1> elements with the color green.
+ */
+h1 {
+  color: green;
+}

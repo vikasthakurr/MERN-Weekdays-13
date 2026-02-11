@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+       * [Universal Selector] (*)
+       * Definition: matches any element of any type.
+       * Usage: Often used to reset margins and padding globally.
+       */
+      /* * {
+        color: red;
+      } */
+
+      /* 
+       * [Type Selector] (h1)
+       * Definition: Selects all elements that match the given node name.
+       * Usage: Applies styles to all <h1> elements on the page.
+       */
+      /* h1 {
+        color: green;
+      } */
+
+      /* 
+       * [ID Selector] (#id)
+       * Definition: Selects an element based on the value of its id attribute.
+       * Condition: There should be only one element with a given ID in a document.
+       */
+      #first {
+        color: green;
+      }
+
+      /* 
+       * [Class Selector] (.class)
+       * Definition: Selects all elements that have the given class attribute.
+       * Usage: efficient way to apply styles to multiple elements.
+       */
+      .red {
+        color: yellow;
+        font-size: 50px;
+      }
+
+      /* 
+       * [Selector List] (,)
+       * Definition: Matches any element that is selected by one of the selectors in the list.
+       * Usage: Grouping multiple selectors to share the same styles.
+       */
+      /* h1,
+      p {
+        color: green;
+      } */
+
+      /* 
+       * [Descendant Combinator] (space)
+       * Definition: Combines two selectors such that elements matched by the second selector are selected if they have an ancestor element matching the first selector.
+       * 
+       * [Pseudo-class] (:nth-child)
+       * Definition: Matches elements based on their position in a group of siblings.
+       */
+      div p:nth-child(even) {
+        color: red;
+      }
+
+      /* 
+       * [Attribute Selector] ([attr=value])
+       * Definition: Matches elements with a specific attribute value.
+       */
+      input[type="text"] {
+        color: red;
+      }
+
+      /* 
+       * [Pseudo-element] (::placeholder)
+       * Definition: Represents the placeholder text in an <input> or <textarea> element.
+       */
+      input::placeholder {
+        color: yellow;
+        /* font-size: ; */
+      }
+
+      /* h1 {
+        display: none;
+      } */
+
+      /* 
+       * [Pseudo-class] (:hover)
+       * Definition: Matches when the user interacts with an element with a pointing device, but does not necessarily activate it.
+       */
+      h1:hover {
+        display: block;
+        content: "my name is"; /* Note: content property works with ::before/::after usually */
+      }
+
+      /* 
+       * [Pseudo-element] (::before)
+       * Definition: Creates a pseudo-element that is the first child of the selected element. It is often used to add cosmetic content to an element with the content property.
+       */
+      h1:hover::before {
+        content: "My name is ";
+      }
+
+      /* 
+       * [Pseudo-element] (::after)
+       * Definition: Creates a pseudo-element that is the last child of the selected element. It is often used to add cosmetic content to an element with the content property.
+       */
+      h1::after {
+        content: " Kumar Thakur";
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h1 id="first">vikas</h1>
+    <h1 class="red">akash</h1>
+    <h2>vikas</h2>
+    <p class="red">asdfg</p>
+    <span class="red">sdfgh</span>
+    <div class="red">
+        waeshg
+    </div> -->
+    <!-- <h1>heading</h1>
+    <p>para</p> -->
+    <!-- <div>
+      <p>item-1</p>
+      <p>item-2</p>
+      <p>item-3</p>
+      <p>item-4</p>
+    </div> -->
+
+    <!-- <input id="red" type="text" placeholder="enter your name" /> -->
+    <!-- <h1>hover me to make me big</h1> -->
+    <h1>vikas</h1>
+  </body>
+</html>

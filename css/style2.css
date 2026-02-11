@@ -1,0 +1,8 @@
+/*
+ * [Type Selector] (color)
+ * Definition: Selects all elements of the type <color>. 
+ * Note: <color> is not a standard HTML element. This might be intended for a custom element or could be a typo (e.g., missing '.' for a class).
+ */
+color {
+  color: red;
+}
