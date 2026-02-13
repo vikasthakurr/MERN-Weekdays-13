@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* =========================================================
+         STUDENT NOTES: CSS BOX MODEL (Definition + Core Concept)
+         ---------------------------------------------------------
+         1) Definition:
+            Every HTML element is drawn as a rectangular box.
+
+         2) 4 layers of the box model (outside -> inside):
+            margin -> border -> padding -> content
+
+         3) Layer meaning:
+            - margin: outer space between this element and others
+            - border: line around padding/content
+            - padding: inner space between content and border
+            - content: actual text/image/child elements
+
+         4) Size calculation:
+            Default (box-sizing: content-box):
+              final width = content + padding-left/right + border-left/right
+            With box-sizing: border-box:
+              declared width already includes content + padding + border
+
+         5) Practical rule:
+            Most projects set `box-sizing: border-box` globally for predictable layout.
+         ========================================================= */
+      /* Global reset:
+         - Removes browser default spacing.
+         - `box-sizing: border-box` means width/height include padding + border. */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Box model demo (outside to inside):
+         margin -> border -> padding -> content */
+      .container {
+        /* Total visible box size is controlled by these dimensions because of border-box. */
+        width: 400px;
+        height: 400px;
+
+        /* Content text color and background are shown inside the border area. */
+        background-color: beige;
+        color: red;
+
+        /* Inner spacing between content and border. */
+        padding: 200px;
+
+        /* Border wraps around padding + content. */
+        border: 2px solid black;
+
+        /* Outer spacing between this box and surrounding elements. */
+        margin: 20px;
+      }
+
+      /* Exercise wrapper */
+      .exercise {
+        margin: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      .exercise h2 {
+        margin-bottom: 10px;
+      }
+
+      .exercise p {
+        margin-bottom: 12px;
+      }
+
+      .compare {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .demo-box {
+        width: 220px;
+        padding: 20px;
+        border: 5px solid #222;
+        margin: 10px 0;
+        background: #f5f5dc;
+      }
+
+      /* Same declared width as .demo-box, but final rendered width differs by sizing mode */
+      .content-box {
+        box-sizing: content-box;
+      }
+
+      .border-box {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Content area text ("vikas") sits in the center space after padding is applied. -->
+    <div class="container">vikas</div>
+
+    <!-- Practice task:
+         Inspect both boxes in DevTools and compare final rendered width. -->
+    <section class="exercise">
+      <h2>Box Model Practice</h2>
+      <p>
+        Both boxes have <code>width: 220px</code>, <code>padding: 20px</code>, and
+        <code>border: 5px</code>.
+      </p>
+      <div class="compare">
+        <div class="demo-box content-box">content-box (becomes wider than 220px)</div>
+        <div class="demo-box border-box">border-box (stays 220px total)</div>
+      </div>
+    </section>
+  </body>
+</html>

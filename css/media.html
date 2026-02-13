@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* =========================================================
+         STUDENT NOTES: CSS MEDIA QUERIES (Definition + Concept)
+         ---------------------------------------------------------
+         1) Definition:
+            Media queries apply CSS only when certain device or
+            viewport conditions are true.
+
+         2) Core idea:
+            Start with base/default styles, then override them for
+            specific breakpoints or conditions.
+
+         3) Common conditions:
+            - width based: (max-width), (min-width)
+            - orientation: portrait | landscape
+            - resolution: for high-density screens
+
+         4) Responsive strategy:
+            - Mobile-first: write base styles for small screens first
+            - Add larger-screen enhancements with `min-width`
+
+         5) Practical use:
+            Resize typography, change layout, hide/show elements,
+            and adapt images for different screens.
+         ========================================================= */
+      /* Base image style (applies to all orientations unless overridden). */
+      img {
+        width: 500px;
+        height: 600px;
+      }
+
+      /* Conditional override:
+         This block runs only when device/viewport is in landscape mode. */
+      @media (orientation: landscape) {
+        img {
+          /* Smaller square image in landscape */
+          width: 300px;
+          height: 300px;
+          /* Makes the square image circular */
+          border-radius: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Media query demo image -->
+    <img
+      src="https://images.pexels.com/photos/18887675/pexels-photo-18887675.jpeg"
+      alt="Responsive demo"
+    />
+  </body>
+</html>

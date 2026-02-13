@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* =========================================================
+         STUDENT NOTES: CSS POSITION (Definition + Core Concept)
+         ---------------------------------------------------------
+         1) Definition:
+            `position` controls how an element is placed in normal flow
+            and how offset properties (`top/right/bottom/left`) work.
+
+         2) Position values:
+            - static (default): normal flow; offsets do not work
+            - relative: stays in flow, moves visually from its normal spot
+            - absolute: removed from flow; positioned to nearest positioned ancestor
+            - fixed: removed from flow; positioned relative to viewport
+            - sticky: relative until threshold, then fixed-like while scrolling
+
+         3) Important rule for absolute:
+            If no ancestor has position other than static, absolute item
+            positions relative to the initial containing block (page).
+
+         4) Stacking:
+            `z-index` controls overlap order for positioned elements.
+
+         5) Practical use:
+            - relative: small nudges, anchor for absolute children
+            - absolute: badges, overlays, dropdown panels
+            - fixed: floating buttons, top navbars
+            - sticky: table headers, section titles
+         ========================================================= */
+      /* Global reset so spacing differences don't hide positioning behavior. */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* Parent box for demos. `position: relative` creates the containing block for absolute children. */
+      .container {
+        width: 800px;
+        height: 6000px;
+        background-color: beige;
+        position: relative;
+      }
+      /* Shared style for all demo blocks. */
+      .child {
+        width: 100%;
+        height: 100px;
+        margin: 10px;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* Static (default):
+         - `top/right/bottom/left` do not affect static elements.
+         - Uncomment to prove `top: 40px` has no visual effect. */
+      /* .child-1 {
+        position: static;
+        top: 40px;
+      } */
+      /* Relative:
+         - Moves from its normal position.
+         - Still keeps its original space in document flow. */
+      /* .child-2 {
+        position: relative;
+        top: 50%;
+      } */
+      /* Absolute:
+         - Removed from normal flow.
+         - Positions relative to nearest positioned ancestor (`.container`). */
+      /* .child-3 {
+        position: absolute;
+        top: 40px;
+      } */
+      /* Fixed:
+         - Removed from normal flow.
+         - Stays relative to viewport while scrolling. */
+      /* .child-4 { */
+      /* position: fixed;
+        top: 100px;
+        width: 100px;
+        height: 100px;
+      } */
+      /* Sticky:
+         - Behaves like relative until scroll reaches `top`.
+         - Then sticks like fixed within its scroll container. */
+      .child-5 {
+        position: sticky;
+        top: 0;
+      }
+
+      /* Practice section */
+      .exercise {
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      .exercise h2 {
+        margin-bottom: 10px;
+      }
+
+      .exercise p {
+        margin-bottom: 12px;
+      }
+
+      .pos-lab {
+        height: 220px;
+        border: 2px dashed #222;
+        background: #fff9db;
+        position: relative; /* Anchor for the absolute badge */
+        padding: 10px;
+        overflow: auto;
+      }
+
+      .lab-card {
+        height: 380px;
+        background: #f7f7f7;
+        border: 1px solid #bbb;
+        padding: 12px;
+      }
+
+      .badge-abs {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #198754;
+        color: #fff;
+        padding: 6px 10px;
+      }
+
+      .tag-sticky {
+        position: sticky;
+        top: 0;
+        background: #0d6efd;
+        color: #fff;
+        padding: 6px 10px;
+        margin-bottom: 8px;
+      }
+
+      .help-fixed {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        background: #dc3545;
+        color: #fff;
+        padding: 8px 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Demo order matches common interview/theory sequence: static, relative, absolute, fixed, sticky. -->
+    <div class="container">
+      <!-- Static example -->
+      <div class="child-1 child">item-1</div>
+      <!-- Relative example -->
+      <div class="child-2 child">item-2</div>
+      <!-- Absolute example -->
+      <div class="child-3 child">item-3</div>
+      <!-- Fixed example -->
+      <div class="child-4 child">item-4</div>
+      <!-- Sticky example (currently active in CSS) -->
+      <div class="child-5 child">item-5</div>
+    </div>
+
+    <!-- Practice activity:
+         1) Remove `position: relative` from `.pos-lab` and see absolute badge shift.
+         2) Scroll inside the lab to observe sticky behavior.
+         3) Notice fixed help button stays at viewport corner. -->
+    <section class="exercise">
+      <h2>Position Practice</h2>
+      <p>
+        Try editing <code>top</code>, <code>right</code>, and
+        <code>z-index</code> in DevTools to understand placement and overlap.
+      </p>
+      <div class="pos-lab">
+        <div class="badge-abs">absolute badge</div>
+        <div class="lab-card">
+          <div class="tag-sticky">sticky tag</div>
+          <p>Scroll this area to see sticky behavior.</p>
+          <p>
+            Absolute is anchored to this box because parent has
+            <code>position: relative</code>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="help-fixed">fixed help</div>
+  </body>
+</html>

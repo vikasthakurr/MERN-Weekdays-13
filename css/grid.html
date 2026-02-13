@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* =========================================================
+         STUDENT NOTES: CSS GRID (Definition + Core Concept)
+         ---------------------------------------------------------
+         1) Definition:
+            CSS Grid is a 2-dimensional layout system that controls
+            rows and columns at the same time.
+
+         2) Key terms:
+            - Grid container: element with `display: grid`
+            - Grid items: direct children of the container
+            - Grid lines: dividing lines that form tracks
+            - Tracks: rows and columns
+            - Cell: one row-column intersection
+            - Area: rectangular group of one or more cells
+
+         3) Container properties:
+            - grid-template-columns / rows: define track sizes
+            - grid-template-areas: name page sections visually
+            - gap / row-gap / column-gap: spacing between tracks
+            - justify-items / align-items: item alignment inside cells
+            - justify-content / align-content: whole grid alignment
+
+         4) Item properties:
+            - grid-column / grid-row: place by line numbers
+            - grid-area: place by named area
+            - justify-self / align-self: per-item alignment override
+
+         5) Practical use:
+            Use Grid for full-page layouts, dashboards, card galleries,
+            and any UI that needs strong row + column structure.
+         ========================================================= */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* Main grid container:
+         - controls page sections with named template areas. */
+      .container {
+        width: 100vw;
+        height: 100vh;
+        background-color: antiquewhite;
+        display: grid;
+        /* Alternative approach using equal columns */
+        /* grid-template-columns: repeat(3, 1fr); */
+        /* Visual layout map:
+           row1: header spans all 3 columns
+           row2: sidebar + content-1 spanning 2 columns
+           row3: sidebar + content-2 + content-3
+           row4: footer spans all 3 columns */
+        grid-template-areas: "header header header" "sidebar content-1 content-1" "sidebar content-2 content-3" "footer footer footer";
+        /* Align every grid item inside its own cell */
+        /* justify-items: center;
+        align-items: center; */
+        /* Align whole grid tracks inside container if free space remains */
+        /* align-content: flex-end; */
+        /* justify-content: center; */
+        /* Equivalent long-form gap controls */
+        /* row-gap: 10px;
+        column-gap: 10px; */
+        /* Space between rows and columns */
+        gap: 10px;
+      }
+      /* Shared style for each grid item */
+      .child {
+        background-color: aqua;
+        display: flex;
+        /* For flex children, use align-items (not align-content) to center on cross axis */
+        /* justify-content: center;
+        align-items: center; */
+      }
+      /* Area placement and per-item self alignment examples */
+      .header {
+        grid-area: header;
+        justify-self: center;
+        align-self: center;
+      }
+      .sidebar {
+        grid-area: sidebar;
+      }
+      .content-1 {
+        grid-area: content-1;
+      }
+      .content-2 {
+        grid-area: content-2;
+      }
+      .content-3 {
+        grid-area: content-3;
+      }
+      .footer {
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="child header">Header</div>
+      <div class="child sidebar">sidebar</div>
+      <div class="child content-1">content-1</div>
+      <div class="child content-2">content-2</div>
+      <div class="child content-3">content-3</div>
+      <div class="child footer">footer</div>
+    </div>
+  </body>
+</html>

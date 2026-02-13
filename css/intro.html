@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- `width=device-width` makes layout width match device screen width.
+         `initial-scale=1.0` prevents automatic zoom on first load. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      /* =========================================================
+         STUDENT NOTES: INTRO TO CSS (All Core Basics)
+         ---------------------------------------------------------
+         1) What is CSS?
+            CSS (Cascading Style Sheets) is used to style HTML:
+            colors, spacing, layout, fonts, responsiveness, animation.
+
+         2) Why "Cascading"?
+            Multiple rules can target the same element. Browser decides
+            final style using:
+            - Importance (`!important`)
+            - Specificity
+            - Source order (later rule wins if specificity is same)
+
+         3) CSS rule syntax:
+            selector {
+              property: value;
+            }
+
+         4) Ways to add CSS:
+            - Inline: style="" on element (highest normal priority, hard to maintain)
+            - Internal: <style> inside HTML file
+            - External: separate .css file (best for real projects)
+
+         5) Selector basics:
+            - Element selector: p {}
+            - Class selector: .card {}
+            - ID selector: #header {}
+            - Universal selector: * {}
+            - Group selector: h1, p {}
+            - Descendant selector: .card p {}
+
+         6) Specificity order (high -> low):
+            Inline > ID > Class/Attribute/Pseudo-class > Element/Pseudo-element
+
+         7) Box model:
+            Every element has: content, padding, border, margin
+            `box-sizing: border-box` is commonly used for predictable sizing.
+
+         8) Units:
+            - px: fixed size
+            - %: relative to parent
+            - rem: relative to root font size
+            - em: relative to current element font size
+            - vw/vh: relative to viewport width/height
+
+         9) Color values:
+            color names, hex (#ff0000), rgb(), rgba(), hsl(), hsla()
+
+         10) Display basics:
+             - block: new line, full width available
+             - inline: only content width, no width/height control
+             - inline-block: inline flow + width/height support
+             - flex/grid: modern layout systems
+
+         11) Rendering flow + block nature:
+             - Browser parses HTML into DOM and CSS into CSSOM
+             - DOM + CSSOM create the Render Tree
+             - Then browser does Layout (box sizes/positions), Paint, Composite
+             - Block elements start on a new line and stack vertically
+             - By default, many structural tags (div, p, h1, section) are block
+             - Inline elements flow in the same line and do not start new rows
+             - Changing `display` changes rendering behavior (not HTML meaning)
+
+         12) Responsive design:
+             Use media queries to adapt UI by width/orientation.
+
+         13) Best practices:
+             - Keep class names meaningful
+             - Prefer external CSS for larger projects
+             - Avoid overusing `!important`
+             - Reuse variables and utility classes when possible
+         ========================================================= */
+
+      /* Starter reset used in many projects */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Example selector snippets (commented for learning):
+         p { color: blue; }               Element selector
+         .title { font-size: 24px; }      Class selector
+         #main { background: #f5f5f5; }   ID selector
+         .card p { color: #333; }         Descendant selector
+
+         // Rendering behavior idea:
+         // div { display: block; }        starts on new line
+         // span { display: inline; }      stays in current line
+         // span.badge { display: inline-block; width: 80px; }
+      */
+    </style>
+  </head>
+  <body>
+    <!-- Intro page:
+         This file is intentionally minimal and focused on notes.
+         Add elements below and test selectors/rules from comments. -->
+  </body>
+</html>

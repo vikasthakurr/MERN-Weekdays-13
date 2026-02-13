@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* =========================================================
+         STUDENT NOTES: CSS FLEXBOX (Definition + Core Concept)
+         ---------------------------------------------------------
+         1) Definition:
+            Flexbox is a 1-dimensional layout system used to arrange
+            items in a row or a column with easy alignment and spacing.
+
+         2) Key terms:
+            - Flex container: element with `display: flex`
+            - Flex items: direct children of the flex container
+            - Main axis: controlled by `flex-direction`
+            - Cross axis: perpendicular to main axis
+
+         3) Container properties:
+            - flex-direction: row | row-reverse | column | column-reverse
+            - flex-wrap: nowrap | wrap | wrap-reverse
+            - flex-flow: shorthand for direction + wrap
+            - justify-content: align items on main axis
+            - align-items: align items on cross axis
+            - align-content: aligns rows/columns when wrapping exists
+            - gap: consistent spacing between flex items
+
+         4) Item properties:
+            - order: changes visual order
+            - flex-grow: takes extra free space
+            - flex-shrink: shrinks when space is less
+            - flex-basis: starting size before grow/shrink
+            - flex: shorthand (grow shrink basis)
+            - align-self: overrides align-items for one item
+
+         5) Practical use:
+            Use Flexbox for navbars, button groups, cards in one axis,
+            and centering content quickly.
+         ========================================================= */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* Main demo area:
+         - `display: flex` creates the flex formatting context.
+         - `justify-content` and `align-items` center items on both axes. */
+      .container {
+        width: 100vw;
+        height: 100vh;
+        background-color: beige;
+        display: flex;
+        /* Main axis goes left -> right */
+        flex-direction: row;
+        /* Shorthand: direction + wrapping behavior */
+        flex-flow: row wrap;
+        /* flex-wrap: wrap-reverse; */
+        /* Align items on main axis */
+        justify-content: center;
+        /* Align items on cross axis */
+        align-items: center;
+      }
+      /* Shared child style (flex item) */
+      .child {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        /* gap: 10px; */
+        margin: 10px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .child-1 {
+        /* Example per-item alignment override */
+        /* align-self: flex-end; */
+        /* Example visual order change */
+        /* order: 1; */
+      }
+      .child-2 {
+        /* order: -2; */
+        /* flex-basis: 200px; */
+        /* flex-grow: 2; */
+        /* Shrinks twice as fast as items with shrink:1 when container is tight */
+        flex-shrink: 2;
+      }
+      .child-3 {
+        /* order: 2; */
+      }
+
+      /* Exercise section */
+      .exercise {
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      .exercise h2 {
+        margin-bottom: 10px;
+      }
+
+      .exercise p {
+        margin-bottom: 12px;
+      }
+
+      .mini-demo {
+        height: 180px;
+        border: 2px dashed #333;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background: #fff9db;
+      }
+
+      .mini-item {
+        width: 80px;
+        height: 80px;
+        background: #0d6efd;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main flex demo -->
+    <div class="container">
+      <div class="child child-1">item-1</div>
+      <div class="child child-2">item-2</div>
+      <div class="child child-3">item-3</div>
+      <!-- <div class="child">item-1</div>
+      <div class="child">item-2</div>
+      <div class="child">item-3</div>
+      <div class="child">item-1</div>
+      <div class="child">item-2</div>
+      <div class="child">item-3</div> -->
+    </div>
+
+    <!-- Practice activity:
+         Change justify-content, align-items, flex-direction, and order in DevTools. -->
+    <section class="exercise">
+      <h2>Flexbox Practice</h2>
+      <p>
+        Try these:
+        <code>justify-content: center</code>,
+        <code>space-around</code>,
+        <code>flex-end</code>,
+        and <code>align-items: flex-start</code>.
+      </p>
+      <div class="mini-demo">
+        <div class="mini-item">A</div>
+        <div class="mini-item">B</div>
+        <div class="mini-item">C</div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* =========================================================
+         STUDENT NOTES: CSS ANIMATION (Definition + Core Concept)
+         ---------------------------------------------------------
+         1) Definition:
+            CSS animation lets an element change styles over time
+            automatically using keyframes.
+
+         2) Core idea:
+            - Define steps with `@keyframes`
+            - Attach that keyframe sequence to an element using
+              animation properties
+            - Browser interpolates values between steps
+
+         3) Important animation properties:
+            - animation-name: which keyframes to use
+            - animation-duration: total time of one cycle
+            - animation-timing-function: speed curve of motion
+            - animation-delay: wait time before start
+            - animation-iteration-count: number of repeats
+            - animation-direction: normal | reverse | alternate
+            - animation-fill-mode: style before/after animation
+            - animation-play-state: running | paused
+            - animation: shorthand for all above
+
+         4) Performance tip:
+            Prefer animating `transform` and `opacity` for smoother
+            results than animating layout-heavy properties.
+
+         5) Practical use:
+            Loading indicators, attention cues, onboarding highlights,
+            and micro-interactions that improve UI feedback.
+         ========================================================= */
+      /* Scene box for animation demo */
+      .container {
+        width: 600px;
+        height: 700px;
+        background-color: green;
+        display: flex;
+        /* Keep ball centered horizontally and resting at bottom */
+        justify-content: center;
+        align-items: flex-end;
+      }
+      /* Animated element */
+      .ball {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: yellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Use `jump` keyframes defined below */
+        animation-name: jump;
+        /* One full up-down movement takes 1 second */
+        animation-duration: 1s;
+        /* Repeat forever */
+        animation-iteration-count: infinite;
+        /* Slow-fast-slow movement curve */
+        animation-timing-function: ease-in-out;
+      }
+      /* Keyframe sequence:
+         0%   = start state
+         50%  = mid state (highest point)
+         100% = end state (returns to start) */
+      @keyframes jump {
+        0% {
+          /* Initial position at the floor */
+          transform: translateY(0px);
+        }
+        50% {
+          /* Move upward and change color at peak */
+          transform: translateY(-400px);
+          background-color: red;
+        }
+        100% {
+          /* Return to floor and original color */
+          transform: translateY(0px);
+          background-color: yellow;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Ball bounce animation demo -->
+    <div class="container">
+      <div class="ball">IND VS ENG</div>
+    </div>
+  </body>
+</html>
