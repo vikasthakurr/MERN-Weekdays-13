@@ -1,3 +1,5 @@
 aria:https://www.w3.org/WAI/standards-guidelines/aria/
 
 bootstra repo:https://github.com/vikasthakurr/BootstrapV5
+
+Problems:https://docs.google.com/document/d/1-RK2a54-51gbyUXdNUghleTNaDmMcfPO8gNnwzrmeQI/edit?usp=sharing
