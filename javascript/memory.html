@@ -6,6 +6,41 @@
     <title>Document</title>
   </head>
   <body>
+    <!--
+      JavaScript Memory Notes - Student Friendly
+      ------------------------------------------
+
+      1) What is Memory in JavaScript?
+      - Memory is used to store variables, objects, arrays, and functions while code runs.
+
+      2) Stack vs Heap (quick recall)
+      - Stack: stores primitive values and function call frames.
+      - Heap: stores objects/arrays/functions (reference types).
+      - Variables for reference types hold a reference (address), not full data.
+
+      3) Garbage Collection (GC)
+      - JavaScript automatically frees memory that is no longer reachable.
+      - If something is still referenced, GC will not remove it.
+
+      4) What is a Memory Leak?
+      - Memory leak means memory keeps growing because references are not released.
+      - Common causes:
+        - Unstopped intervals/timeouts
+        - Unremoved event listeners
+        - Large arrays/objects kept forever
+        - Closures that retain unused data
+
+      5) About this Demo
+      - "Start Leak" starts an interval and keeps pushing large arrays into `leakyArray`.
+      - This continuously increases memory usage.
+      - "Stop Leak" only stops adding new data.
+      - Already stored data still remains in memory because `leakyArray` still references it.
+
+      6) How to Fix Fully
+      - Stop the interval.
+      - Clear references, for example: `leakyArray = []`.
+      - Remove listeners when they are no longer needed.
+    -->
     <!doctype html>
     <html>
       <head>
@@ -17,12 +52,14 @@
         <button id="stop">Stop Leak</button>
 
         <script>
+          // Demo variables
+          // `leakyArray` holds references to large arrays in heap memory.
           let leakyArray = [];
           let intervalId;
 
           document.getElementById("start").addEventListener("click", () => {
             intervalId = setInterval(() => {
-              // Keep pushing large data into the array
+              // Intentionally create memory pressure by storing large data repeatedly.
               leakyArray.push(new Array(1000000).fill("leak!"));
 
               console.log("Array size:", leakyArray.length);
@@ -31,6 +68,7 @@
 
           document.getElementById("stop").addEventListener("click", () => {
             clearInterval(intervalId);
+            // Memory is still occupied because `leakyArray` still has data references.
             console.log("Stopped leaking, but memory is still used.");
           });
         </script>

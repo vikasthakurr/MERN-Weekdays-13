@@ -6,6 +6,68 @@
     <title>Document</title>
   </head>
   <body>
+    <!--
+      JavaScript Notes: History, Evolution, and Execution
+      ---------------------------------------------------
+
+      1) History (Short Timeline)
+      - 1995: JavaScript was created by Brendan Eich at Netscape in about 10 days.
+      - First name: Mocha, then LiveScript, then JavaScript.
+      - 1997: Standardized as ECMAScript (ES) by ECMA International.
+      - ES5 (2009): Major stable features for modern web apps.
+      - ES6 / ES2015 (2015): let, const, classes, arrow functions, modules, promises.
+      - After 2015: New versions released yearly (ES2016, ES2017, ...).
+
+      2) Why JavaScript Became Popular
+      - Runs directly in browsers.
+      - Makes web pages interactive (buttons, forms, dynamic UI).
+      - Same language can run on server with Node.js.
+      - Huge ecosystem and community support.
+
+      3) How JavaScript Runs in Browser
+      - Browser has a JavaScript Engine (for example: V8 in Chrome, SpiderMonkey in Firefox).
+      - Engine reads JS code and executes it.
+      - Browser also provides Web APIs (DOM, setTimeout, fetch, localStorage, etc.).
+      - JS uses:
+        - Call Stack: runs function execution in order.
+        - Web APIs: handles async tasks outside main JS thread.
+        - Callback Queue / Microtask Queue: stores completed async callbacks.
+        - Event Loop: moves ready callbacks to call stack when stack is empty.
+
+      4) JavaScript Engine Basics
+      - Parsing: code -> Abstract Syntax Tree (AST).
+      - Compilation/Optimization: engine prepares code for execution.
+      - Execution: runs instructions and manages memory.
+      - Garbage Collector: removes unused memory automatically.
+
+      5) What is JIT (Just-In-Time Compilation)?
+      - JIT means the engine compiles code during runtime (while program is running).
+      - Fast path:
+        1. Start with baseline compilation/interpreter.
+        2. Detect frequently used ("hot") code.
+        3. Optimize hot code with JIT compiler.
+      - Benefit: better performance than pure interpretation.
+      - If assumptions fail, engine can de-optimize and recompile.
+
+      6) JavaScript Nature
+      - Single-threaded language (one main call stack for JS code).
+      - Non-blocking behavior is achieved using async APIs + event loop.
+      - Dynamically typed (variable type can change at runtime).
+
+      7) Browser vs Node.js
+      - Browser JS:
+        - Has DOM and browser APIs.
+        - Used for frontend UI.
+      - Node.js:
+        - Uses V8 engine outside browser.
+        - Has server-side APIs (fs, http, process, etc.).
+        - DOM is not available by default.
+
+      8) Script Loading
+      - <script src="..."> blocks HTML parsing until file is downloaded and executed.
+      - Use `defer` to load script in parallel and execute after HTML parsing.
+      - Use `async` for independent scripts where order is not important.
+    -->
     <script src="test.js"></script>
   </body>
 </html>
