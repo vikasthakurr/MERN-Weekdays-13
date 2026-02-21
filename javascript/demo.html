@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="red">Red</button>
+    <button id="green">Green</button>
+
+    <script>
+      let redBtn = (document.getElementById("red").onclick =
+        handleClick("red"));
+
+      let greenBtn = (document.getElementById("green").onclick =
+        handleClick("green"));
+
+      function handleClick(color) {
+        document.body.style.backgroundColor = `${color}`;
+      }
+    </script>
+    <!-- <script>
+      function outer() {
+        var a = 10;
+
+        function inner() {
+          console.log(a);
+        }
+        inner();
+      }
+      outer();
+      // console.log(res);
+      //   res();
+    </script> -->
+  </body>
+</html>
