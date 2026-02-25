@@ -29,6 +29,19 @@
          5) Practical rule:
             Most projects set `box-sizing: border-box` globally for predictable layout.
          ========================================================= */
+      /* QUICK REFERENCE (Important):
+         - `padding` and `border` increase element size in `content-box`.
+         - `margin` never increases element's own box size; it only adds outside space.
+         - `outline` is drawn outside border and does NOT affect layout size.
+         - Vertical margins between block elements can collapse in normal flow.
+         - Shorthand order:
+           margin/padding: top right bottom left (clockwise)
+           border: width style color
+         Example:
+           margin: 10px 20px 30px 40px;
+           padding: 8px 12px;
+           border: 2px solid black;
+      */
       /* Global reset:
          - Removes browser default spacing.
          - `box-sizing: border-box` means width/height include padding + border. */
@@ -41,20 +54,30 @@
       /* Box model demo (outside to inside):
          margin -> border -> padding -> content */
       .container {
+        /* `width` and `height`:
+           Define total box size here because global `box-sizing` is `border-box`. */
         /* Total visible box size is controlled by these dimensions because of border-box. */
         width: 400px;
         height: 400px;
 
+        /* `background-color`:
+           Fills the content + padding area (behind text). */
         /* Content text color and background are shown inside the border area. */
         background-color: beige;
         color: red;
 
+        /* `padding`:
+           Creates space inside the border, around the content. */
         /* Inner spacing between content and border. */
         padding: 200px;
 
+        /* `border`:
+           Visible edge around content + padding. */
         /* Border wraps around padding + content. */
         border: 2px solid black;
 
+        /* `margin`:
+           Transparent outer space outside the border. */
         /* Outer spacing between this box and surrounding elements. */
         margin: 20px;
       }
@@ -80,6 +103,7 @@
       }
 
       .demo-box {
+        /* Base values used for comparison in both sizing modes. */
         width: 220px;
         padding: 20px;
         border: 5px solid #222;
@@ -87,7 +111,10 @@
         background: #f5f5dc;
       }
 
-      /* Same declared width as .demo-box, but final rendered width differs by sizing mode */
+      /* Same declared width as .demo-box, but final rendered width differs by sizing mode.
+         Formula:
+         - content-box total width = width + left/right padding + left/right border
+         - border-box total width = declared width (already includes padding + border) */
       .content-box {
         box-sizing: content-box;
       }
@@ -95,6 +122,11 @@
       .border-box {
         box-sizing: border-box;
       }
+
+      /* Learn by trying:
+         1) Change `.demo-box` width to 300px and compare both boxes again.
+         2) Add `outline: 4px dashed blue;` and see that layout width does not change.
+         3) Change `padding` to `40px` and observe size impact in `content-box`. */
     </style>
   </head>
   <body>
