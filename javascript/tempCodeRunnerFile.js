@@ -1,2 +1,2 @@
- console.log(a);
-  }
+console.log(obj2);
+console.log(obj1);
