@@ -7,6 +7,90 @@ let obj1 = {
   },
 };
 
+/*
+==========================================================
+REST VS SPREAD OPERATOR (...): SAME SYMBOL, DIFFERENT USE
+==========================================================
+
+1) REST OPERATOR (collect values)
+   - "Rest" means "take the remaining values and pack them into one variable".
+   - Used mainly in:
+     a) Function parameters -> function fn(...args) {}
+     b) Array destructuring -> const [first, ...rest] = arr;
+     c) Object destructuring -> const { a, ...restObj } = obj;
+
+   Example:
+   const [first, ...others] = [10, 20, 30, 40];
+   // first = 10
+   // others = [20, 30, 40]
+
+   function sum(...nums) {
+     // nums is a real array, not "arguments" object
+     return nums.reduce((acc, n) => acc + n, 0);
+   }
+   // sum(1,2,3,4) => 10
+
+2) SPREAD OPERATOR (expand values)
+   - "Spread" means "take an iterable/object and unpack it".
+   - Used mainly in:
+     a) Function calls -> fn(...arr)
+     b) Array literals -> const merged = [...a1, ...a2]
+     c) Object literals -> const clone = { ...obj }
+
+   Example:
+   const a = [1, 2];
+   const b = [3, 4];
+   const merged = [...a, ...b]; // [1,2,3,4]
+
+   const user = { name: "Vikas", city: "Agra" };
+   const updated = { ...user, city: "Delhi" };
+   // updated.city becomes "Delhi" (later keys override earlier keys)
+
+Important:
+   - Rest collects.
+   - Spread expands.
+*/
+
+/*
+=====================================
+SHALLOW COPY VS DEEP COPY IN OBJECTS
+=====================================
+
+SHALLOW COPY:
+   - Creates a new top-level object/array.
+   - Nested objects/arrays are still shared references.
+   - If nested data is changed in copy, original also changes.
+
+   Common shallow-copy methods:
+   - const copy = { ...obj }
+   - const copy = Object.assign({}, obj)
+   - const arrCopy = [...arr]
+
+   In this file:
+   const obj2 = { ...obj1 }; // shallow
+   obj2.fname = "akash";         // only obj2 changes (primitive at top level)
+   obj2.address.city = "delhi";  // both obj1 and obj2 change (shared nested object)
+
+DEEP COPY:
+   - Creates completely independent copy at all levels.
+   - Nested objects/arrays are also copied.
+   - Changes in copied nested data do not affect original.
+
+   Common deep-copy methods:
+   1) structuredClone(obj)  [recommended in modern JS]
+      - Handles nested objects, arrays, Date, Map, Set, etc.
+      - Does not clone functions.
+
+   2) JSON.parse(JSON.stringify(obj))
+      - Works for plain JSON-safe data only.
+      - Loses undefined, function, Symbol, Date type details, Infinity, etc.
+      - Fails on circular references.
+
+Reference behavior:
+   - let obj2 = obj1; // not copy, only reference alias
+     Any change through obj2 directly affects obj1, because both point to same object.
+*/
+
 // let obj2 = obj1;
 // let obj2 = { ...obj1 };
 // let obj2 = structuredClone(obj1);
