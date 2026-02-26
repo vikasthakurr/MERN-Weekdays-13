@@ -78,8 +78,27 @@ ABOUT THIS EXAMPLE BELOW
 - `.finally` always runs at the end.
 */
 
-fetch("https://jsonplaceholder.typicode.com/todos/1")
-  .then((res) => res.json())
-  .then((data) => console.log(data))
-  .catch((err) => console.log(err))
-  .finally(() => console.log("fetching is done"));
+// fetch("https://jsonplaceholder.typicode.com/todos/1")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data))
+//   .catch((err) => console.log(err))
+//   .finally(() => console.log("fetching is done"));
+
+//promises methods for multiple promises
+// const p1 = Promise.reject("success1");
+// const p2 = Promise.reject("success2");
+// const p3 = Promise.reject("error");
+
+// Promise.any([p1, p2, p3])
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err));
+
+// const res = fetch("https://jsonplaceholder.typicode.com/todos/1");
+// console.log(res);
+
+async function fetchData() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  const data = await response.json();
+  console.log(data);
+}
+fetchData();
