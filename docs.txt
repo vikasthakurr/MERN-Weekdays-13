@@ -5,3 +5,7 @@ bootstra repo:https://github.com/vikasthakurr/BootstrapV5
 Problems:https://docs.google.com/document/d/1-RK2a54-51gbyUXdNUghleTNaDmMcfPO8gNnwzrmeQI/edit?usp=sharing
 
 this keyword:https://web.dev/learn/javascript/functions/this
+
+apilink:https://developer.themoviedb.org/docs/getting-started
+
+docs:https://docs.google.com/spreadsheets/d/1it14n-2BTLIOlre4eO6EWZF5WoMYcndZrPAEo_JyOdY/edit?usp=sharing

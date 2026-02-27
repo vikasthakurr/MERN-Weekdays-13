@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .red {
+        width: 300px;
+        height: 300px;
+        background-color: aqua;
+      }
+    </style>
   </head>
   <body>
     <!--
@@ -17,11 +24,17 @@
       - Example: `window.alert()`, `location.href`, `history.back()`.
     -->
 
-    <h1 class="first">vikas</h1>
-    <h1 class="first">akash</h1>
-    <h1 id="second">raju</h1>
+    <div class="container">
+      <h1 class="first">vikas</h1>
+      <h1 class="first">akash</h1>
+      <h1 id="second">raju</h1>
+    </div>
 
     <script>
+      const container = document.querySelector(".container");
+      // console.log(container.children);
+      const data = document.querySelectorAll(".first");
+      console.log(data.previousSibling);
       // Methods to access elements in DOM:
 
       // 1) By id (returns single element or null)
@@ -43,15 +56,25 @@
       // 6) querySelectorAll (all matching elements, NodeList)
       const byQueryAll = document.querySelectorAll(".first");
 
-      console.log("getElementById:", byId);
-      console.log("getElementsByClassName:", byClass);
-      console.log("getElementsByTagName:", byTag);
-      console.log("getElementsByName:", byName);
-      console.log("querySelector:", byQueryOne);
-      console.log("querySelectorAll:", byQueryAll);
+      // console.log("getElementById:", byId);
+      // console.log("getElementsByClassName:", byClass);
+      // console.log("getElementsByTagName:", byTag);
+      // console.log("getElementsByName:", byName);
+      // console.log("querySelector:", byQueryOne);
+      // console.log("querySelectorAll:", byQueryAll);
 
-      // BOM example:
-      console.log("Current URL from BOM location object:", window.location.href);
+      // const container = document.createElement("div");
+      // container.textContent = "Hello, DOM!";
+      // container.classList.add("red");
+      // document.body.appendChild(container);
+
+      // const image = document.createElement("img");
+      // image.setAttribute(
+      //   "src",
+      //   "https://images.pexels.com/photos/36169382/pexels-photo-36169382.jpeg",
+      // );
+      // image.setAttribute("alt", "Placeholder Image");
+      // document.body.appendChild(image);
     </script>
   </body>
 </html>
