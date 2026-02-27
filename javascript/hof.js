@@ -1,3 +1,21 @@
+// Higher-Order Function (HOF) in JavaScript:
+// A function is called a HOF if it either:
+// 1) takes another function as an argument, or
+// 2) returns a function.
+//
+// Common built-in HOFs: forEach, map, filter, reduce.
+// They accept callback functions to customize behavior.
+//
+// Custom HOF:
+// `calculateTax` below is a custom HOF because it accepts `cb`
+// (callback) and applies it to each array element.
+//
+// Why use Array.prototype?
+// We add `calculateTax` to `Array.prototype` so every array can use it
+// like a built-in method (ex: `vikas.calculateTax(tenPercent)`),
+// instead of calling a separate utility function each time.
+// It keeps the usage clean and reusable for all arrays.
+
 // let arr = [1, 2, 3, 4, 5];
 
 // arr.forEach((ele) => console.log(ele))
@@ -37,6 +55,10 @@ Array.prototype.calculateTax = function (cb) {
   }
   return res;
 };
+
+// This allows flexible reuse:
+// `tenPercent` and `twentyPercent` are different strategies,
+// while `calculateTax` (HOF) stays the same.
 
 // console.log(calculateTax(salary, tenPercent));
 console.log(vikas.calculateTax(tenPercent));

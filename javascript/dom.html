@@ -6,8 +6,52 @@
     <title>Document</title>
   </head>
   <body>
+    <!--
+      DOM (Document Object Model):
+      - DOM is the tree-like structure of the HTML document.
+      - JavaScript uses `document` to read/change HTML elements, text, styles, attributes.
+
+      BOM (Browser Object Model):
+      - BOM represents browser-level objects outside HTML structure.
+      - Common BOM objects: window, location, history, navigator, screen.
+      - Example: `window.alert()`, `location.href`, `history.back()`.
+    -->
+
     <h1 class="first">vikas</h1>
     <h1 class="first">akash</h1>
     <h1 id="second">raju</h1>
+
+    <script>
+      // Methods to access elements in DOM:
+
+      // 1) By id (returns single element or null)
+      const byId = document.getElementById("second");
+
+      // 2) By class name (returns HTMLCollection)
+      const byClass = document.getElementsByClassName("first");
+
+      // 3) By tag name (returns HTMLCollection)
+      const byTag = document.getElementsByTagName("h1");
+
+      // 4) By name attribute (returns NodeList)
+      // Works when elements have name="..."
+      const byName = document.getElementsByName("username");
+
+      // 5) querySelector (first matching element)
+      const byQueryOne = document.querySelector(".first");
+
+      // 6) querySelectorAll (all matching elements, NodeList)
+      const byQueryAll = document.querySelectorAll(".first");
+
+      console.log("getElementById:", byId);
+      console.log("getElementsByClassName:", byClass);
+      console.log("getElementsByTagName:", byTag);
+      console.log("getElementsByName:", byName);
+      console.log("querySelector:", byQueryOne);
+      console.log("querySelectorAll:", byQueryAll);
+
+      // BOM example:
+      console.log("Current URL from BOM location object:", window.location.href);
+    </script>
   </body>
 </html>
