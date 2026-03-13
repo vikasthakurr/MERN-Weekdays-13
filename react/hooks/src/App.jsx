@@ -1,5 +1,5 @@
 import React from "react";
-import { useLayoutEffect } from "react";
+// import { useLayoutEffect } from "react";
 // import { useEffect } from "react";
 import { useState } from "react";
 
@@ -22,7 +22,7 @@ const App = () => {
     // a = a - 1;
     // console.log(a);
     setCount(count + 1);
-    value = value + 1;
+    // value = value + 1;
     console.log(value);
   }
   return (
