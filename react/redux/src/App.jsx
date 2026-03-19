@@ -9,7 +9,7 @@ const App = () => {
       <AddTodo />
 
       <ViewTodo />
-      <Dummy />
+      {/* <Dummy /> */}
     </div>
   );
 };
