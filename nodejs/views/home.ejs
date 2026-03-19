@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | MERN Weekdays</title>
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --primary: #3b82f6;
+        --primary-dark: #1e40af;
+        --text: #1f2937;
+        --muted: #64748b;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #edf2ff 0%, #f8fafc 100%);
+        color: var(--text);
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem 1rem 4rem;
+      }
+      .hero {
+        background: var(--card);
+        border: 1px solid #dbeafe;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: clamp(1.8rem, 3vw, 2.5rem);
+        color: var(--primary-dark);
+        margin-bottom: 0.5rem;
+      }
+      .hero p {
+        color: var(--muted);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        border-radius: 999px;
+        padding: 0.75rem 1.4rem;
+        text-decoration: none;
+        font-weight: 600;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .btn-primary:hover,
+      .btn-primary:focus {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+      }
+      .card h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      .footer {
+        margin-top: 2rem;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #020617;
+          --card: #111827;
+          --text: #e2e8f0;
+          --muted: #94a3b8;
+        }
+        body {
+          background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+        }
+        .hero,
+        .card {
+          border-color: #334155;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="hero" aria-label="Home hero section">
+        <h1>Welcome to MERN Weekdays</h1>
+        <p>
+          Build fast, modern web apps with the MERN stack. Dive into Node.js,
+          Express, React, and MongoDB with styled components and simple, clear
+          UI architecture.
+        </p>
+        <a class="btn-primary" href="#features">Explore Features</a>
+      </section>
+      <section id="features" class="cards" aria-label="Features overview">
+        <article class="card">
+          <h3>Node.js + Express</h3>
+          <p>
+            API routes, middleware, and server-side rendering with EJS for
+            smooth data flow across your backend.
+          </p>
+        </article>
+        <article class="card">
+          <h3>React Frontend</h3>
+          <p>
+            Component-driven experience with state management, routing, and
+            responsive design patterns.
+          </p>
+        </article>
+        <article class="card">
+          <h3>MongoDB Database</h3>
+          <p>
+            Document-based storage for flexible schemas, indexes, and scalable
+            queries.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Productivity</h3>
+          <p>
+            Reusable layout, theming system, and quick toolkit to accelerate
+            prototype to production.
+          </p>
+        </article>
+      </section>
+      <footer class="footer">
+        © <%= new Date().getFullYear() %> MERN Weekdays. All rights reserved.
+      </footer>
+    </div>
+  </body>
+</html>
