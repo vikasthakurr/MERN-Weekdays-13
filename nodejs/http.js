@@ -1,26 +1,61 @@
+/**
+ * Node.js HTTP Module
+ * 
+ * The 'http' module allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).
+ * It is primarily used to create web servers that can listen for incoming requests and 
+ * send back responses.
+ */
+
 // import http from "http";
+
+/**
+ * 1. Creating a Server
+ * The createServer() method takes a callback function that is executed whenever 
+ * a request is made to the server.
+ * 
+ * The callback has two main parameters:
+ * - req (Request): Contains information about the incoming request (URL, method, headers, etc.)
+ * - res (Response): Used to send data back to the client.
+ */
 
 // const PORT = 3000;
 // const server = http.createServer((req, res) => {
-//   //   console.log(req.url);
-//   //   console.log(req.method);
-//   //   console.log(req.body);
-//   //   res.end("hello world");
-//   //   res.statusCode = 200;
-//   //   res.setHeader("author", "vikas");
-//   //   res.setHeader("dataformat", "application/text");
-//   //   res.end("hi");
-//   if (req.url === "/contact") {
-//     res.end("hello from contact page");
-//   }
-//   if (req.url === "/product") {
-//     res.end("hellow for xyz");
+//   // req.url: The URL path of the request (e.g., '/', '/contact')
+//   // req.method: The HTTP method (e.g., 'GET', 'POST')
+  
+//   // res.setHeader(): Sets HTTP response headers
+//   // res.statusCode: Sets the HTTP status code (e.g., 200 for OK, 404 for Not Found)
+  
+//   if (req.url === "/") {
+//     res.end("Hello from Home Page");
+//   } else if (req.url === "/contact") {
+//     res.end("Hello from Contact Page");
+//   } else if (req.url === "/product") {
+//     res.end("Hello from Product Page");
+//   } else {
+//     res.statusCode = 404;
+//     res.end("Page Not Found");
 //   }
 // });
 
+/**
+ * 2. Listening for Requests
+ * The listen() method starts the server and makes it listen for connections 
+ * on a specified port.
+ */
 // server.listen(PORT, () => {
-//   console.log("server started");
+//   console.log(`HTTP Server started on port ${PORT}`);
 // });
+
+/**
+ * 3. Transition to Express
+ * While the 'http' module is powerful, it becomes difficult to manage as the application grows.
+ * Express.js is a framework built ON TOP of the 'http' module that simplifies:
+ * - Routing (path handling)
+ * - Middleware (authentication, logging, etc.)
+ * - Parsing request bodies (JSON, forms)
+ * - Rendering views (EJS, Pug, etc.)
+ */
 
 import express from "express";
 // console.log(express);
