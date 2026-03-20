@@ -66,6 +66,8 @@ import url from "url";
 
 const app = express();
 app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.static("public"));
 const PORT = 3000;
 app.set("view engine", "ejs");
 // app.set("views", "views");
