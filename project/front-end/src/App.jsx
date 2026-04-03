@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import CartPage from './pages/CartPage'
 import LoginPage from './pages/LoginPage'
 import ProfilePage from './pages/ProfilePage'
+import CheckoutPage from './pages/CheckoutPage'
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState('')
@@ -16,6 +17,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage searchQuery={searchQuery} />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>

@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo } from 'react'
+import { useLocation } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
 import { fetchProducts } from '../api/products.api'
 
@@ -11,12 +12,22 @@ const SORT_OPTIONS = [
 ]
 
 const HomePage = ({ searchQuery }) => {
+  const location = useLocation()
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [sortBy, setSortBy] = useState('default')
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [priceRange, setPriceRange] = useState(10000)
+  const [showSuccess, setShowSuccess] = useState(false)
+
+  useEffect(() => {
+    if (location.state?.paymentSuccess) {
+      setShowSuccess(true)
+      setTimeout(() => setShowSuccess(false), 4000)
+      window.history.replaceState({}, '')
+    }
+  }, [])
 
   useEffect(() => {
     fetchProducts()
@@ -91,6 +102,12 @@ const HomePage = ({ searchQuery }) => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Payment success toast */}
+      {showSuccess && (
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-green-500 text-white px-6 py-3 rounded-2xl shadow-lg flex items-center gap-2 text-sm font-medium animate-bounce">
+          ✅ Payment successful! Thank you for your order.
+        </div>
+      )}
       {/* Filters & Sort bar */}
       <div className="flex flex-wrap gap-4 items-end mb-8 bg-white p-4 rounded-2xl shadow">
         {/* Category filter */}
