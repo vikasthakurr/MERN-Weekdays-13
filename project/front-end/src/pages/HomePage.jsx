@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from 'react'
 import { useLocation } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
 import { fetchProducts } from '../api/products.api'
+import { useSearch } from '../context/Searchcontext'
 
 const SORT_OPTIONS = [
   { label: 'Default', value: 'default' },
@@ -11,8 +12,9 @@ const SORT_OPTIONS = [
   { label: 'Discount: High to Low', value: 'discount_desc' },
 ]
 
-const HomePage = ({ searchQuery }) => {
+const HomePage = () => {
   const location = useLocation()
+  const { searchQuery } = useSearch()
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)

@@ -1,49 +1,53 @@
 import rateLimit from "express-rate-limit";
 
-// helper to build a consistent error response shape
 const message = (action) => ({
   success: false,
   message: `Too many ${action} attempts. Please try again later.`,
 });
 
-// strict limiter — 10 req / 15 min
-// applied to sensitive auth routes (login, register) to prevent brute force & spam
+const limiterDefaults = {
+  standardHeaders: true,
+  legacyHeaders: false,
+}
+
 export const loginLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 10,
+  ...limiterDefaults,
+  windowMs: 15 * 60 * 1000,
+  max: 50,
   message: message("login"),
 });
 
 export const registerLimiter = rateLimit({
+  ...limiterDefaults,
   windowMs: 15 * 60 * 1000,
-  max: 10,
+  max: 50,
   message: message("registration"),
 });
 
-// moderate limiter — 20 req / 15 min
-// applied to write operations that shouldn't be hammered
 export const updateLimiter = rateLimit({
+  ...limiterDefaults,
   windowMs: 15 * 60 * 1000,
-  max: 20,
+  max: 50,
   message: message("update"),
 });
 
 export const createOrderLimiter = rateLimit({
+  ...limiterDefaults,
   windowMs: 15 * 60 * 1000,
-  max: 20,
+  max: 50,
   message: message("order creation"),
 });
 
-// loose limiter — 50 req / 15 min
-// applied to read routes to prevent scraping while allowing normal usage
 export const getAllUsersLimiter = rateLimit({
+  ...limiterDefaults,
   windowMs: 15 * 60 * 1000,
-  max: 50,
+  max: 100,
   message: message("user listing"),
 });
 
 export const getOrdersLimiter = rateLimit({
+  ...limiterDefaults,
   windowMs: 15 * 60 * 1000,
-  max: 50,
+  max: 100,
   message: message("order listing"),
 });

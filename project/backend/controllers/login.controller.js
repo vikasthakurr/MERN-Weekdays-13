@@ -26,7 +26,7 @@ const loginController = asyncHandler(async (req, res) => {
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24,
   });
-  return res.status(200).json({ message: "login successfull", token });
+  return res.status(200).json({ message: "login successfull", token, user: { id: user._id, username: user.username, email: user.email } });
 });
 
 export default loginController;

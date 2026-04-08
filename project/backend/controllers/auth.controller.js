@@ -13,14 +13,11 @@ import {
 
 const authController = express.Router();
 
-authController.post("/register", registerLimiter, registerController);
-authController.post("/login", loginLimiter, loginController);
+authController.post("/register", registerController);
+authController.post("/login", loginController);
 authController.put("/update/:id", updateLimiter, usersController.updateUser);
 authController.delete("/delete/:id", usersController.deleteUser);
 authController.get("/users", getAllUsersLimiter, usersController.getAllUsers);
 // authController.get("/orders", orderController.getAllOrders);
-
-
-
 
 export default authController;

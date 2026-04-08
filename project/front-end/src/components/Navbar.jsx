@@ -2,16 +2,27 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectCartCount } from '../store/cartSlice'
+import { useSearch } from '../context/Searchcontext'
+import { useAuth } from '../context/Authcontext'
 
-const Navbar = ({ onSearch }) => {
+const Navbar = () => {
   const [query, setQuery] = useState('')
   const [menuOpen, setMenuOpen] = useState(false)
   const navigate = useNavigate()
   const cartCount = useSelector(selectCartCount)
+  const { setSearchQuery } = useSearch()
+  const { user, isLoggedIn, logout } = useAuth()
 
   const handleSearch = (e) => {
     e.preventDefault()
-    onSearch(query)
+    setSearchQuery(query)
+    navigate('/')
+  }
+
+  const handleInputChange = (e) => {
+    const val = e.target.value
+    setQuery(val)
+    if (val === '') setSearchQuery('')
   }
 
   return (
@@ -27,7 +38,7 @@ const Navbar = ({ onSearch }) => {
           <input
             type="text"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={handleInputChange}
             placeholder="Search products..."
             className="w-full border border-gray-300 rounded-l-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
           />
@@ -51,9 +62,21 @@ const Navbar = ({ onSearch }) => {
             )}
           </Link>
           <Link to="/profile" className="hover:text-indigo-600 transition">Profile</Link>
-          <Link to="/login" className="bg-indigo-600 text-white px-4 py-1.5 rounded-lg hover:bg-indigo-700 transition">
-            Login / Signup
-          </Link>
+          {isLoggedIn ? (
+            <div className="flex items-center gap-3">
+              <span className="text-indigo-600 font-semibold">Welcome, {user?.username}</span>
+              <button
+                onClick={() => { logout(); navigate('/') }}
+                className="bg-red-500 text-white px-4 py-1.5 rounded-lg hover:bg-red-600 transition text-sm"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link to="/login" className="bg-indigo-600 text-white px-4 py-1.5 rounded-lg hover:bg-indigo-700 transition">
+              Login / Signup
+            </Link>
+          )}
         </div>
 
         {/* Mobile hamburger */}
@@ -73,7 +96,7 @@ const Navbar = ({ onSearch }) => {
             <input
               type="text"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={handleInputChange}
               placeholder="Search products..."
               className="w-full border border-gray-300 rounded-l-lg px-3 py-2 text-sm focus:outline-none"
             />
@@ -84,7 +107,19 @@ const Navbar = ({ onSearch }) => {
           <Link to="/" onClick={() => setMenuOpen(false)} className="hover:text-indigo-600">Home</Link>
           <Link to="/cart" onClick={() => setMenuOpen(false)} className="hover:text-indigo-600">🛒 Cart</Link>
           <Link to="/profile" onClick={() => setMenuOpen(false)} className="hover:text-indigo-600">Profile</Link>
-          <Link to="/login" onClick={() => setMenuOpen(false)} className="text-indigo-600 font-semibold">Login / Signup</Link>
+          {isLoggedIn ? (
+            <>
+              <span className="text-indigo-600 font-semibold">Welcome, {user?.username}</span>
+              <button
+                onClick={() => { logout(); navigate('/'); setMenuOpen(false) }}
+                className="text-red-500 font-semibold text-left"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to="/login" onClick={() => setMenuOpen(false)} className="text-indigo-600 font-semibold">Login / Signup</Link>
+          )}
         </div>
       )}
     </nav>
